@@ -1,12 +1,12 @@
 const routes = [
   {
-    path: "/",
-    component: () => import("layouts/MainLayout.vue"),
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
     children: [
       {
-        name: "index",
-        path: "",
-        component: () => import("pages/IndexPage.vue"),
+        name: 'index',
+        path: '',
+        component: () => import('pages/IndexPage.vue'),
       },
     ],
   },
@@ -14,9 +14,9 @@ const routes = [
   // Always leave this as last one,
   // but you can also remove it
   {
-    path: "/:catchAll(.*)*",
-    redirect: { name: "index" },
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'index' },
   },
-];
+]
 
-export default routes;
+export default routes
