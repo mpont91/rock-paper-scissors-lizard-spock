@@ -4,8 +4,8 @@ const getRandomPick = () => options[Math.floor(Math.random() * options.length)]
 
 const getWinner = (player, computer) => {
   if (player === computer) return 'draw'
-  if (rules[player].includes(computer)) return 'player'
-  return 'computer'
+  else if (rules[player].includes(computer)) return 'player'
+  else return 'computer'
 }
 
 const getWinnerMessage = (winner) => {
