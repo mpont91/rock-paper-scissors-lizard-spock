@@ -3,8 +3,8 @@
     <q-card-section>
       <div class="row q-gutter-sm justify-center">
         <q-btn
-          :key="option"
           v-for="option in options"
+          :key="option"
           :label="option"
           :color="option === modelValue ? 'primary' : 'secondary'"
           @click="selectHandler(option)"

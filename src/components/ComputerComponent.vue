@@ -4,8 +4,8 @@
       <h1 class="text-h2 text-center q-my-md">Computer</h1>
       <div class="row q-gutter-sm justify-center">
         <q-btn
-          :key="option"
           v-for="option in options"
+          :key="option"
           :label="option"
           :color="option === picked ? 'red' : 'grey'"
           disable
