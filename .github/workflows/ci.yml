@@ -16,14 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.5.1
+      - name: Run tests e2e
+        uses: cypress-io/github-action@v4
         with:
-          node-version: 18
-          check-latest: true
-
-      - name: Install dependencies
-        run: npm ci --prefer-offline --no-audit
+          build: npm run build
+          start: npm run dev
 
       - name: Run linter
         run: npm run lint
+
+      - name: Run tests unit
+        run: npm run test:unit:ci
