@@ -9,4 +9,26 @@ describe('<computer-component>', () => {
     const wrapper = mount(ComputerComponent)
     expect(wrapper.exists()).to.be.true
   })
+
+  it('renders pick properly', () => {
+    const picks = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+    const selectedClass = 'bg-red'
+    const unselectedClass = 'bg-grey'
+
+    picks.forEach((pick) => {
+      const wrapper = mount(ComputerComponent, {
+        props: {
+          picked: pick,
+        },
+      })
+      expect(wrapper.exists()).to.be.true
+      wrapper.findAll('button').forEach((button) => {
+        if (button.text() === pick) {
+          expect(button.classes()).to.include(selectedClass)
+        } else {
+          expect(button.classes()).to.include(unselectedClass)
+        }
+      })
+    })
+  })
 })
