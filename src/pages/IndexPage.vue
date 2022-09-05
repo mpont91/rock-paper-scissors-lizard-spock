@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <computer-component :picked="computerPick" />
-    <result-component :winner="winner" />
+    <result-component :winner="winner" @reset="reset" />
     <player-component v-model="playerPick" @pick="start" />
   </q-page>
 </template>
@@ -20,12 +20,7 @@ const winner = ref(null)
 const start = () => {
   computerPick.value = getRandomPick()
   winner.value = getWinner(playerPick.value, computerPick.value)
-
-  setTimeout(() => {
-    reset()
-  }, 1000)
 }
-
 const reset = () => {
   winner.value = null
   playerPick.value = null

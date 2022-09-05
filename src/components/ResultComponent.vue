@@ -1,7 +1,8 @@
 <template>
   <q-card v-if="winner" square class="result-card absolute-center">
-    <q-card-section>
-      <h2 class="text-h2 text-center">{{ result }}</h2>
+    <q-card-section class="text-center">
+      <h2 class="text-h2">{{ result }}</h2>
+      <q-btn class="text-center" @click="$emit('reset')">New game?</q-btn>
     </q-card-section>
   </q-card>
 </template>
@@ -9,7 +10,7 @@
 <script setup>
 import { getWinnerMessage } from 'src/services/game-service'
 import { computed } from 'vue'
-
+defineEmits(['reset'])
 const props = defineProps({
   winner: {
     type: String,

@@ -7,6 +7,7 @@
           :key="option"
           :label="option"
           :color="option === modelValue ? 'primary' : 'secondary'"
+          :disabled="modelValue"
           @click="selectHandler(option)"
         />
       </div>
