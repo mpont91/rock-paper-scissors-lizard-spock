@@ -35,6 +35,7 @@ const selectHandler = (option) => {
 <style scoped>
 .player-card {
   width: 700px;
+  max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
 }

@@ -27,6 +27,7 @@ defineProps({
 <style scoped>
 .computer-card {
   width: 700px;
+  max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
 }
