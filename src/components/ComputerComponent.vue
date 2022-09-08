@@ -1,5 +1,5 @@
 <template>
-  <q-card square class="computer-card absolute-top q-mt-sm">
+  <q-card square class="computer-card absolute-top">
     <q-card-section>
       <h1 class="text-h2 text-center q-my-md">Computer: {{ computerScore }}</h1>
       <div class="row q-gutter-lg justify-center">
@@ -34,6 +34,7 @@ const computerScore = computed(() => gameStore.computerScore)
 .computer-card {
   width: 700px;
   max-width: 90vw;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
