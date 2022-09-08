@@ -31,7 +31,7 @@
     "@quasar/quasar-app-extension-testing": "^2.0.4",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^4.2.1",
     "@quasar/quasar-app-extension-testing-unit-vitest": "^0.1.2",
-    "@vitest/ui": "^0.15.0",
+    "@vitest/ui": "^0.23.1",
     "@vue/test-utils": "^2.0.0",
     "autoprefixer": "^10.4.2",
     "eslint": "8.22.0",
