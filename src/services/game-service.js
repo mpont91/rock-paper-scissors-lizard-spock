@@ -1,4 +1,4 @@
-const options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+const options = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 const getRandomPick = () => options[Math.floor(Math.random() * options.length)]
 
@@ -19,11 +19,11 @@ const messages = {
 }
 
 const rules = {
-  Rock: ['Scissors', 'Lizard'],
-  Paper: ['Rock', 'Spock'],
-  Scissors: ['Paper', 'Lizard'],
-  Lizard: ['Paper', 'Spock'],
-  Spock: ['Rock', 'Scissors'],
+  rock: ['scissors', 'lizard'],
+  paper: ['rock', 'spock'],
+  scissors: ['paper', 'lizard'],
+  lizard: ['paper', 'spock'],
+  spock: ['rock', 'scissors'],
 }
 
 export { options, getRandomPick, getWinner, getWinnerMessage }

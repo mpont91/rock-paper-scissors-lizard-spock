@@ -1,13 +1,14 @@
 <template>
   <q-card square class="computer-card absolute-top q-mt-sm">
     <q-card-section>
-      <h1 class="text-h2 text-center q-my-md">Computer</h1>
-      <div class="row q-gutter-sm justify-center">
+      <h1 class="text-h2 text-center q-my-md">Computer: {{ computerScore }}</h1>
+      <div class="row q-gutter-lg justify-center">
         <q-btn
           v-for="option in options"
           :key="option"
           :label="option"
           :color="option === picked ? 'red' : 'grey'"
+          size="lg"
           disable
         />
       </div>
@@ -15,7 +16,9 @@
   </q-card>
 </template>
 <script setup>
+import { computed } from 'vue'
 import { options } from 'src/services/game-service'
+import { useGameStore } from 'stores/game-store'
 
 defineProps({
   picked: {
@@ -23,6 +26,9 @@ defineProps({
     default: null,
   },
 })
+
+const gameStore = useGameStore()
+const computerScore = computed(() => gameStore.computerScore)
 </script>
 <style scoped>
 .computer-card {

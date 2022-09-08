@@ -9,17 +9,22 @@
 <script setup>
 import { ref } from 'vue'
 import { getRandomPick, getWinner } from 'src/services/game-service'
+import { useGameStore } from 'stores/game-store'
 import ComputerComponent from 'components/ComputerComponent.vue'
 import ResultComponent from 'components/ResultComponent.vue'
 import PlayerComponent from 'components/PlayerComponent.vue'
 
-const playerPick = ref(null)
-const computerPick = ref(null)
-const winner = ref(null)
+const gameStore = useGameStore()
+const playerPick = ref()
+const computerPick = ref()
+const winner = ref()
 
 const start = () => {
   computerPick.value = getRandomPick()
   winner.value = getWinner(playerPick.value, computerPick.value)
+  gameStore.updateScore(winner.value)
+  gameStore.incrementPlayerHistory(playerPick.value)
+  gameStore.incrementComputerHistory(computerPick.value)
 }
 const reset = () => {
   winner.value = null

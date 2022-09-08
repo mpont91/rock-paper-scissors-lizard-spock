@@ -1,9 +1,28 @@
 <template>
-  <q-dialog :model-value="!!winner" persistent>
-    <q-card square class="result-card absolute-center">
+  <q-dialog :model-value="!!winner" @before-hide="$emit('reset')">
+    <q-card
+      square
+      :class="[
+        'result-card',
+        'absolute-center',
+        'text-white',
+        winner === 'player'
+          ? 'bg-green-3'
+          : winner === 'computer'
+          ? 'bg-red-3'
+          : 'bg-orange-3',
+      ]"
+    >
       <q-card-section class="text-center">
         <h2 class="text-h2">{{ result }}</h2>
-        <q-btn class="text-center" @click="$emit('reset')">New game?</q-btn>
+        <q-btn
+          color="black"
+          size="lg"
+          class="text-center"
+          @click="$emit('reset')"
+        >
+          New game?
+        </q-btn>
       </q-card-section>
     </q-card>
   </q-dialog>
