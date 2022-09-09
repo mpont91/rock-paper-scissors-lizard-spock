@@ -1,5 +1,9 @@
 <template>
-  <q-dialog :model-value="!!winner" @before-hide="$emit('reset')">
+  <q-dialog
+    :model-value="!!winner"
+    transition-duration="600"
+    @before-hide="$emit('reset')"
+  >
     <q-card
       square
       :class="[
@@ -14,7 +18,7 @@
       ]"
     >
       <q-card-section class="text-center">
-        <h2 class="text-h2">{{ result }}</h2>
+        <h2 class="text-h5">{{ result }}</h2>
         <q-btn
           color="black"
           size="lg"

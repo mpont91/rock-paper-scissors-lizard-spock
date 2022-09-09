@@ -5,6 +5,7 @@
         <q-btn
           v-for="option in options"
           :key="option"
+          class="player-pick"
           :label="option"
           :color="option === modelValue ? 'primary' : 'secondary'"
           size="lg"
@@ -12,7 +13,7 @@
           @click="selectHandler(option)"
         />
       </div>
-      <h1 class="text-h2 text-center q-my-md">Player: {{ playerScore }}</h1>
+      <h1 class="text-h5 text-center q-my-md">Player: {{ playerScore }}</h1>
     </q-card-section>
   </q-card>
 </template>
@@ -36,11 +37,15 @@ const selectHandler = (option) => {
   emit('pick')
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .player-card {
   width: 700px;
   max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
+
+  .player-pick {
+    min-width: 100px;
+  }
 }
 </style>
