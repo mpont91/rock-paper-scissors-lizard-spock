@@ -12,6 +12,10 @@ const getWinnerMessage = (winner) => {
   return messages[winner]
 }
 
+const getRulesDescription = () => {
+  return rulesDescription
+}
+
 const messages = {
   draw: 'Draw!',
   player: 'You win!',
@@ -26,4 +30,23 @@ const rules = {
   spock: ['rock', 'scissors'],
 }
 
-export { options, getRandomPick, getWinner, getWinnerMessage }
+const rulesDescription = [
+  'Scissors cuts Paper',
+  'Paper covers Rock',
+  'Rock crushes Lizard',
+  'Lizard poisons Spock',
+  'Spock smashes Scissors',
+  'Scissors decapitates Lizard',
+  'Lizard eats Paper',
+  'Paper disproves Spock',
+  'Spock vaporizes Rock',
+  '(and as it always has) Rock crushes Scissors',
+]
+
+export {
+  options,
+  getRandomPick,
+  getWinner,
+  getWinnerMessage,
+  getRulesDescription,
+}

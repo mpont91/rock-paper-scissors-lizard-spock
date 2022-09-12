@@ -4,6 +4,7 @@ import {
   getRandomPick,
   getWinner,
   getWinnerMessage,
+  getRulesDescription,
 } from 'src/services/game-service'
 
 const expectedOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock']
@@ -68,5 +69,20 @@ describe('game-service', () => {
     expect(getWinnerMessage('draw')).to.equal('Draw!')
     expect(getWinnerMessage('player')).to.equal('You win!')
     expect(getWinnerMessage('computer')).to.equal('Computer wins!')
+  })
+
+  it('getRulesDescription should contain the right rules', () => {
+    expect(getRulesDescription()).to.contain('Scissors cuts Paper')
+    expect(getRulesDescription()).to.contain('Paper covers Rock')
+    expect(getRulesDescription()).to.contain('Rock crushes Lizard')
+    expect(getRulesDescription()).to.contain('Lizard poisons Spock')
+    expect(getRulesDescription()).to.contain('Spock smashes Scissors')
+    expect(getRulesDescription()).to.contain('Scissors decapitates Lizard')
+    expect(getRulesDescription()).to.contain('Lizard eats Paper')
+    expect(getRulesDescription()).to.contain('Paper disproves Spock')
+    expect(getRulesDescription()).to.contain('Spock vaporizes Rock')
+    expect(getRulesDescription()).to.contain(
+      '(and as it always has) Rock crushes Scissors'
+    )
   })
 })
