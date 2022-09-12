@@ -6,7 +6,7 @@ import {
   getWinnerMessage,
 } from 'src/services/game-service'
 
-const expectedOptions = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+const expectedOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 describe('game-service', () => {
   it('options should have all possible picks', () => {
@@ -21,35 +21,35 @@ describe('game-service', () => {
   it('getWinner should follow the rules of the game', () => {
     const possibilities = {
       draw: [
-        ['Rock', 'Rock'],
-        ['Paper', 'Paper'],
-        ['Scissors', 'Scissors'],
-        ['Lizard', 'Lizard'],
-        ['Spock', 'Spock'],
+        ['rock', 'rock'],
+        ['paper', 'paper'],
+        ['scissors', 'scissors'],
+        ['lizard', 'lizard'],
+        ['spock', 'spock'],
       ],
       player: [
-        ['Rock', 'Scissors'],
-        ['Rock', 'Lizard'],
-        ['Paper', 'Rock'],
-        ['Paper', 'Spock'],
-        ['Scissors', 'Paper'],
-        ['Scissors', 'Lizard'],
-        ['Lizard', 'Paper'],
-        ['Lizard', 'Spock'],
-        ['Spock', 'Rock'],
-        ['Spock', 'Scissors'],
+        ['rock', 'scissors'],
+        ['rock', 'lizard'],
+        ['paper', 'rock'],
+        ['paper', 'spock'],
+        ['scissors', 'paper'],
+        ['scissors', 'lizard'],
+        ['lizard', 'paper'],
+        ['lizard', 'spock'],
+        ['spock', 'rock'],
+        ['spock', 'scissors'],
       ],
       computer: [
-        ['Scissors', 'Rock'],
-        ['Lizard', 'Rock'],
-        ['Rock', 'Paper'],
-        ['Spock', 'Paper'],
-        ['Paper', 'Scissors'],
-        ['Lizard', 'Scissors'],
-        ['Paper', 'Lizard'],
-        ['Spock', 'Lizard'],
-        ['Rock', 'Spock'],
-        ['Scissors', 'Spock'],
+        ['scissors', 'rock'],
+        ['lizard', 'rock'],
+        ['rock', 'paper'],
+        ['spock', 'paper'],
+        ['paper', 'scissors'],
+        ['lizard', 'scissors'],
+        ['paper', 'lizard'],
+        ['spock', 'lizard'],
+        ['rock', 'spock'],
+        ['scissors', 'spock'],
       ],
     }
 
