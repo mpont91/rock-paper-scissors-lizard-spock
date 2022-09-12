@@ -3,13 +3,11 @@
     <q-card-section>
       <h1 class="text-h5 text-center q-my-md">Computer: {{ computerScore }}</h1>
       <div class="row q-gutter-lg justify-center">
-        <q-btn
-          class="computer-pick"
-          :label="picked ? picked : ''"
-          :color="picked ? 'red' : 'grey'"
-          size="lg"
-          disable
-        />
+        <q-btn class="computer-pick" size="lg" color="grey-5" round>
+          <q-avatar v-if="picked" size="100px">
+            <img :src="`${picked}.png`" />
+          </q-avatar>
+        </q-btn>
       </div>
     </q-card-section>
   </q-card>
@@ -37,7 +35,8 @@ const computerScore = computed(() => gameStore.computerScore)
   margin-right: auto;
 
   .computer-pick {
-    min-width: 150px;
+    min-width: 100px;
+    min-height: 100px;
   }
 }
 </style>

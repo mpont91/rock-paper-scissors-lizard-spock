@@ -6,12 +6,14 @@
           v-for="option in options"
           :key="option"
           class="player-pick"
-          :label="option"
-          :color="option === modelValue ? 'primary' : 'secondary'"
           size="lg"
-          :disabled="modelValue"
+          round
           @click="selectHandler(option)"
-        />
+        >
+          <q-avatar size="100px">
+            <img :src="`${option}.png`" />
+          </q-avatar>
+        </q-btn>
       </div>
       <h1 class="text-h5 text-center q-my-md">Player: {{ playerScore }}</h1>
     </q-card-section>
@@ -46,6 +48,7 @@ const selectHandler = (option) => {
 
   .player-pick {
     min-width: 100px;
+    min-height: 100px;
   }
 }
 </style>
