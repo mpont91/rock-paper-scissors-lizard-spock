@@ -4,6 +4,7 @@ import { LocalStorage } from 'quasar'
 export const useGameStore = defineStore({
   id: 'game',
   state: () => ({
+    showRulesFirstTime: LocalStorage.getItem('show-rules-first-time') || true,
     playerScore: LocalStorage.getItem('player-score') || 0,
     computerScore: LocalStorage.getItem('computer-score') || 0,
     playerHistory: LocalStorage.getItem('player-history') || {
@@ -65,6 +66,10 @@ export const useGameStore = defineStore({
         lizard: 0,
         spock: 0,
       }
+    },
+    hideRulesFirstTime() {
+      LocalStorage.set('show-rules-first-time', 'hide')
+      this.showRulesFirstTime = false
     },
   },
 })
