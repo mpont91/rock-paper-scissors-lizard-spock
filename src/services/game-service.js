@@ -1,3 +1,6 @@
+import { useQuasar } from 'quasar'
+import { computed } from 'vue'
+
 const options = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 const getRandomPick = () => options[Math.floor(Math.random() * options.length)]
@@ -14,6 +17,11 @@ const getWinnerMessage = (winner) => {
 
 const getRulesDescription = () => {
   return rulesDescription
+}
+
+const getButtonSizing = () => {
+  const $q = useQuasar()
+  return computed(() => buttonSizing[$q.screen.name])
 }
 
 const messages = {
@@ -42,6 +50,13 @@ const rulesDescription = [
   'Spock vaporizes Rock',
   '(and as it always has) Rock crushes Scissors',
 ]
+const buttonSizing = {
+  xs: '50px',
+  sm: '70px',
+  md: '90px',
+  lg: '100px',
+  xl: '100px',
+}
 
 export {
   options,
@@ -49,4 +64,5 @@ export {
   getWinner,
   getWinnerMessage,
   getRulesDescription,
+  getButtonSizing,
 }

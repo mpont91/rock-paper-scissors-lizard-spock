@@ -10,7 +10,7 @@
           round
           @click="selectHandler(option)"
         >
-          <q-avatar size="100px">
+          <q-avatar :size="buttonSizing">
             <img :src="`${option}.png`" />
           </q-avatar>
         </q-btn>
@@ -21,7 +21,7 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-import { options } from 'src/services/game-service'
+import { getButtonSizing, options } from 'src/services/game-service'
 import { useGameStore } from 'stores/game-store'
 
 defineProps({
@@ -32,8 +32,10 @@ defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'pick'])
+
 const gameStore = useGameStore()
 const playerScore = computed(() => gameStore.playerScore)
+const buttonSizing = getButtonSizing()
 const selectHandler = (option) => {
   emit('update:modelValue', option)
   emit('pick')
@@ -47,8 +49,8 @@ const selectHandler = (option) => {
   margin-right: auto;
 
   .player-pick {
-    min-width: 100px;
-    min-height: 100px;
+    min-width: v-bind('buttonSizing');
+    min-height: v-bind('buttonSizing');
   }
 }
 </style>
