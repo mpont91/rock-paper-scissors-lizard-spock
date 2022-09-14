@@ -1,5 +1,5 @@
 <template>
-  <q-card square class="computer-card absolute-top">
+  <q-card class="computer-card absolute-top">
     <q-card-section>
       <h1 class="text-h5 text-center q-my-md">Computer: {{ computerScore }}</h1>
       <div class="row q-gutter-lg justify-center">

@@ -1,5 +1,5 @@
 <template>
-  <q-card square class="player-card absolute-bottom q-mb-sm">
+  <q-card class="player-card absolute-bottom q-mb-sm">
     <q-card-section>
       <div class="row q-gutter-lg justify-center">
         <pick-component

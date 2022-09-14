@@ -1,6 +1,6 @@
 <template>
   <q-dialog persistent full-height full-width :model-value="showRules">
-    <q-card square>
+    <q-card>
       <q-card-section class="text-center">
         <q-btn
           icon="close"
