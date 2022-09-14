@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   options,
-  getRandomPick,
+  getComputerPick,
   getWinner,
   getWinnerMessage,
   getRulesDescription,
@@ -15,7 +15,7 @@ describe('game-service', () => {
   })
 
   it('random pick should be one of the expected options', () => {
-    const randomPick = getRandomPick()
+    const randomPick = getComputerPick()
     expect(expectedOptions).include(randomPick)
   })
 

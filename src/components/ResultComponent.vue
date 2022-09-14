@@ -1,14 +1,12 @@
 <template>
   <q-dialog
-    :model-value="!!winner"
+    :model-value="showResult"
     transition-duration="600"
     @before-hide="$emit('reset')"
   >
     <q-card
-      square
       :class="[
         'result-card',
-        'absolute-center',
         'text-white',
         winner === 'player'
           ? 'bg-green-3'
@@ -41,6 +39,10 @@ const props = defineProps({
     type: String,
     default: null,
     validator: (value) => [null, 'draw', 'player', 'computer'].includes(value),
+  },
+  showResult: {
+    type: Boolean,
+    default: false,
   },
 })
 const result = computed(() => {

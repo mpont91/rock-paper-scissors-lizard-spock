@@ -1,6 +1,8 @@
 const options = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
-const getRandomPick = () => options[Math.floor(Math.random() * options.length)]
+const getComputerPick = () => {
+  return randomPick()
+}
 
 const getWinner = (player, computer) => {
   if (player === computer) return 'draw'
@@ -15,6 +17,8 @@ const getWinnerMessage = (winner) => {
 const getRulesDescription = () => {
   return rulesDescription
 }
+
+const randomPick = () => options[Math.floor(Math.random() * options.length)]
 
 const messages = {
   draw: 'Draw!',
@@ -45,7 +49,7 @@ const rulesDescription = [
 
 export {
   options,
-  getRandomPick,
+  getComputerPick,
   getWinner,
   getWinnerMessage,
   getRulesDescription,
