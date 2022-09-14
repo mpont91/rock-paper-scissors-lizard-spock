@@ -3,11 +3,7 @@
     <q-card-section>
       <h1 class="text-h5 text-center q-my-md">Computer: {{ computerScore }}</h1>
       <div class="row q-gutter-lg justify-center">
-        <q-btn class="computer-pick" size="lg" color="grey-5" round>
-          <q-avatar v-if="picked" :size="buttonSizing">
-            <img :src="`${picked}.png`" />
-          </q-avatar>
-        </q-btn>
+        <pick-component :pick="picked" />
       </div>
     </q-card-section>
   </q-card>
@@ -15,7 +11,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useGameStore } from 'stores/game-store'
-import { getButtonSizing } from 'src/services/game-service'
+import PickComponent from 'components/PickComponent.vue'
 
 defineProps({
   picked: {
@@ -26,7 +22,6 @@ defineProps({
 
 const gameStore = useGameStore()
 const computerScore = computed(() => gameStore.computerScore)
-const buttonSizing = getButtonSizing()
 </script>
 <style lang="scss" scoped>
 .computer-card {
@@ -35,10 +30,5 @@ const buttonSizing = getButtonSizing()
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-
-  .computer-pick {
-    min-width: v-bind('buttonSizing');
-    min-height: v-bind('buttonSizing');
-  }
 }
 </style>

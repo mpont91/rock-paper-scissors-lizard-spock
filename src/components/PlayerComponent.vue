@@ -2,18 +2,12 @@
   <q-card square class="player-card absolute-bottom q-mb-sm">
     <q-card-section>
       <div class="row q-gutter-lg justify-center">
-        <q-btn
+        <pick-component
           v-for="option in options"
           :key="option"
-          class="player-pick"
-          size="lg"
-          round
+          :pick="option"
           @click="selectHandler(option)"
-        >
-          <q-avatar :size="buttonSizing">
-            <img :src="`${option}.png`" />
-          </q-avatar>
-        </q-btn>
+        />
       </div>
       <h1 class="text-h5 text-center q-my-md">Player: {{ playerScore }}</h1>
     </q-card-section>
@@ -21,8 +15,9 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-import { getButtonSizing, options } from 'src/services/game-service'
+import { options } from 'src/services/game-service'
 import { useGameStore } from 'stores/game-store'
+import PickComponent from 'components/PickComponent.vue'
 
 defineProps({
   modelValue: {
@@ -35,7 +30,6 @@ const emit = defineEmits(['update:modelValue', 'pick'])
 
 const gameStore = useGameStore()
 const playerScore = computed(() => gameStore.playerScore)
-const buttonSizing = getButtonSizing()
 const selectHandler = (option) => {
   emit('update:modelValue', option)
   emit('pick')
@@ -47,10 +41,5 @@ const selectHandler = (option) => {
   max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
-
-  .player-pick {
-    min-width: v-bind('buttonSizing');
-    min-height: v-bind('buttonSizing');
-  }
 }
 </style>
