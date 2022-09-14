@@ -18,4 +18,25 @@ describe('<player-component>', () => {
     })
     expect(wrapper.exists()).to.be.true
   })
+
+  it('renders all picks property', () => {
+    const wrapper = mount(PlayerComponent, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+          }),
+        ],
+      },
+    })
+    wrapper.findAll('img').forEach((img) => {
+      expect([
+        'rock.png',
+        'paper.png',
+        'scissors.png',
+        'lizard.png',
+        'spock.png',
+      ]).to.contain(img.attributes().src)
+    })
+  })
 })

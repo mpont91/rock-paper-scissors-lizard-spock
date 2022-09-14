@@ -24,11 +24,13 @@ describe('<computer-component>', () => {
 
     picks.forEach((pick) => {
       const wrapper = mount(ComputerComponent, {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn,
-          }),
-        ],
+        global: {
+          plugins: [
+            createTestingPinia({
+              createSpy: vi.fn,
+            }),
+          ],
+        },
         props: {
           picked: pick,
         },
