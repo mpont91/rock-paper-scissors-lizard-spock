@@ -6,6 +6,7 @@
       :show-battle="showBattle"
       :player-pick="playerPick"
       :computer-pick="computerPick"
+      :winner="winner"
       @reset="endBattle"
     />
     <result-component
