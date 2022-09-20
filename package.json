@@ -38,7 +38,7 @@
     "eslint": "8.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.11.3",
-    "eslint-plugin-vue": "^9.0.0",
+    "eslint-plugin-vue": "^9.5.1",
     "prettier": "^2.5.1",
     "vitest": "^0.15.0"
   },
