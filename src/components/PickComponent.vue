@@ -30,7 +30,7 @@ defineEmits(['click'])
 const $q = useQuasar()
 const buttonSizing = computed(() => sizings[$q.screen.name])
 const sizings = {
-  xs: '50px',
+  xs: '40px',
   sm: '70px',
   md: '90px',
   lg: '100px',
