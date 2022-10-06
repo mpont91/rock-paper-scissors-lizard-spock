@@ -14,7 +14,11 @@
       :winner="winner"
       @reset="resetGame"
     />
-    <player-component v-model="playerPick" @pick="startBattle" />
+    <player-component
+      v-model="playerPick"
+      @pick="startBattle"
+      @reset-stats="resetStats"
+    />
     <rules-component :show-rules="showRulesFirstTime" @hide-rules="hideRules" />
   </q-page>
 </template>
@@ -62,5 +66,8 @@ const resetGame = () => {
 const hideRules = () => {
   gameStore.hideRulesFirstTime()
   showRules.value = false
+}
+const resetStats = () => {
+  gameStore.reset()
 }
 </script>

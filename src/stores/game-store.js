@@ -46,6 +46,10 @@ export const useGameStore = defineStore({
       if (winner === 'player') this.incrementPlayerScore()
       else if (winner === 'computer') this.incrementComputerScore()
     },
+    reset() {
+      this.resetScore()
+      this.resetHistory()
+    },
     resetScore() {
       LocalStorage.remove('player-score')
       LocalStorage.remove('computer-score')
@@ -55,14 +59,14 @@ export const useGameStore = defineStore({
     resetHistory() {
       LocalStorage.remove('player-history')
       LocalStorage.remove('computer-history')
-      this.playerScore = {
+      this.playerHistory = {
         rock: 0,
         paper: 0,
         scissors: 0,
         lizard: 0,
         spock: 0,
       }
-      this.computerScore = {
+      this.computerHistory = {
         rock: 0,
         paper: 0,
         scissors: 0,

@@ -10,6 +10,11 @@
         />
       </div>
       <h1 class="text-h5 text-center q-my-md">Player: {{ playerScore }}</h1>
+      <div class="text-center">
+        <q-btn color="primary" @click="$emit('resetStats')">
+          Reset stats
+        </q-btn>
+      </div>
     </q-card-section>
   </q-card>
 </template>
@@ -26,7 +31,7 @@ defineProps({
   },
 })
 
-const emit = defineEmits(['update:modelValue', 'pick'])
+const emit = defineEmits(['update:modelValue', 'pick', 'resetStats'])
 
 const gameStore = useGameStore()
 const playerScore = computed(() => gameStore.playerScore)
