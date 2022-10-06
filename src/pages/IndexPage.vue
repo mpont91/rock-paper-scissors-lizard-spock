@@ -7,6 +7,7 @@
       :player-pick="playerPick"
       :computer-pick="computerPick"
       :winner="winner"
+      @update-score="updateScore"
       @reset="endBattle"
     />
     <result-component
@@ -53,6 +54,8 @@ const startBattle = () => {
 const endBattle = () => {
   showBattle.value = false
   showResult.value = true
+}
+const updateScore = () => {
   gameStore.updateScore(winner.value)
   gameStore.incrementPlayerHistory(playerPick.value)
   gameStore.incrementComputerHistory(computerPick.value)

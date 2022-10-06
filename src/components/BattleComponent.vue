@@ -2,7 +2,7 @@
   <q-dialog
     :model-value="showBattle"
     transition-duration="600"
-    @before-hide="$emit('reset')"
+    @before-hide="$emit('updateScore')"
   >
     <q-card class="battle-card">
       <h1 class="text-h5 absolute-bottom-left q-mb-sm q-ml-sm">Player</h1>
@@ -26,7 +26,7 @@ import { ref, watch } from 'vue'
 import { options } from 'src/services/game-service'
 import PickComponent from 'components/PickComponent.vue'
 
-const emit = defineEmits(['reset'])
+const emit = defineEmits(['updateScore', 'reset'])
 const props = defineProps({
   showBattle: {
     type: Boolean,
@@ -57,15 +57,12 @@ const hideLoser = () => {
     showPlayerPick.value = false
   }
 }
-const emitReset = () => {
-  emit('reset')
-}
 let hideLoserTimeout = null
 let emitResetTimeout = null
 watch(props, ({ showBattle }) => {
   if (showBattle) {
     hideLoserTimeout = setTimeout(hideLoser, 1000)
-    emitResetTimeout = setTimeout(emitReset, 3500)
+    emitResetTimeout = setTimeout(() => emit('reset'), 3500)
   } else {
     clearTimeout(emitResetTimeout)
     clearTimeout(hideLoserTimeout)
