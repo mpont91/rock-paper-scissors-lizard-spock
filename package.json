@@ -33,7 +33,7 @@
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^4.2.2",
     "@quasar/quasar-app-extension-testing-unit-vitest": "^0.1.2",
     "@vitest/ui": "^0.15.0",
-    "@vue/test-utils": "^2.2.7",
+    "@vue/test-utils": "^2.3.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.29.0",
     "eslint-config-prettier": "^8.6.0",
