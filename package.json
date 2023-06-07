@@ -23,7 +23,7 @@
     "@quasar/extras": "^1.16.4",
     "pinia": "^2.0.35",
     "quasar": "^2.11.9",
-    "vue": "^3.2.45",
+    "vue": "^3.3.4",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
