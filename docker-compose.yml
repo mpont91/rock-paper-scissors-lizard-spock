@@ -1,0 +1,10 @@
+services:
+  rpsls:
+    image: node:18
+    container_name: rpsls-node
+    working_dir: /app
+    entrypoint: /app/.docker/entrypoint-node.sh
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./:/app

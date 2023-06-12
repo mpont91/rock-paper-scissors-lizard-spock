@@ -1,7 +1,0 @@
-{
-  "appId": "org.capacitor.quasar.app",
-  "appName": "rock-paper-scissors-lizard-spock",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}

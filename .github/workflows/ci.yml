@@ -23,7 +23,10 @@ jobs:
           start: npm run dev
 
       - name: Run linter
-        run: npm run lint
+        run: npm run lint:check
+
+      - name: Run formatter
+        run: npm run format:check
 
       - name: Run tests unit
         run: npm run test:unit:ci
