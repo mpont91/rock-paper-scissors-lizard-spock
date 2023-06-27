@@ -1,7 +1,7 @@
 <template>
   <q-toolbar class="bg-primary text-white">
     <q-avatar>
-      <img src="favicon.png" />
+      <q-img :src="rpsls" />
     </q-avatar>
     <q-toolbar-title v-if="$q.screen.gt.xs">
       Rock - Paper - Scissors - Lizard - Spock
@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+import rpsls from 'assets/rpsls.webp'
 import { useQuasar } from 'quasar'
 useQuasar()
 

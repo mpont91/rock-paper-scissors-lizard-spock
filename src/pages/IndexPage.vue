@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <toolbar-component @show-rules="showRules = true" />
+    <the-header-component @show-rules="showRules = true" />
     <computer-component :picked="computerPick" />
     <battle-component
       :show-battle="showBattle"
@@ -28,7 +28,7 @@
 import { computed, ref } from 'vue'
 import { getComputerPick, getWinner } from 'src/services/game-service'
 import { useGameStore } from 'stores/game-store'
-import ToolbarComponent from 'components/ToolbarComponent.vue'
+import TheHeaderComponent from 'components/TheHeaderComponent.vue'
 import ComputerComponent from 'components/ComputerComponent.vue'
 import ResultComponent from 'components/ResultComponent.vue'
 import PlayerComponent from 'components/PlayerComponent.vue'
