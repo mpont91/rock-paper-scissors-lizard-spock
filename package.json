@@ -22,7 +22,7 @@
     "test:unit:ui": "vitest --ui"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.5",
+    "@quasar/extras": "^1.16.6",
     "pinia": "^2.1.3",
     "quasar": "^2.12.5",
     "vue": "^3.3.4",
