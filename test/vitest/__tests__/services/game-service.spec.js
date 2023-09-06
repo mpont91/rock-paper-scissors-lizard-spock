@@ -82,7 +82,7 @@ describe('game-service', () => {
     expect(getRulesDescription()).to.contain('Paper disproves Spock')
     expect(getRulesDescription()).to.contain('Spock vaporizes Rock')
     expect(getRulesDescription()).to.contain(
-      '(and as it always has) Rock crushes Scissors'
+      '(and as it always has) Rock crushes Scissors',
     )
   })
 })

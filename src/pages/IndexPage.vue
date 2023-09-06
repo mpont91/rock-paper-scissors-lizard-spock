@@ -43,7 +43,7 @@ const showResult = ref(false)
 const showBattle = ref(false)
 const showRules = ref(false)
 const showRulesFirstTime = computed(
-  () => showRules.value || gameStore.showRulesFirstTime
+  () => showRules.value || gameStore.showRulesFirstTime,
 )
 
 const startBattle = () => {
