@@ -10,6 +10,6 @@ describe('Landing', () => {
     cy.visit('/')
   })
   it('.should() - assert that <title> is correct', () => {
-    cy.title().should('include', 'rock-paper-scissors-lizard-spock')
+    cy.title().should('include', 'Rock Paper Scissors Lizard Spock game')
   })
 })
