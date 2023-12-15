@@ -2,14 +2,6 @@
   <q-page>
     <the-header-component @show-rules="showRules = true" />
     <computer-component :picked="computerPick" />
-    <battle-component
-      :show-battle="showBattle"
-      :player-pick="playerPick"
-      :computer-pick="computerPick"
-      :winner="winner"
-      @update-score="updateScore"
-      @reset="endBattle"
-    />
     <result-component
       :show-result="showResult"
       :winner="winner"
@@ -33,14 +25,12 @@ import ComputerComponent from 'components/ComputerComponent.vue'
 import ResultComponent from 'components/ResultComponent.vue'
 import PlayerComponent from 'components/PlayerComponent.vue'
 import RulesComponent from 'components/RulesComponent.vue'
-import BattleComponent from 'components/BattleComponent.vue'
 
 const gameStore = useGameStore()
 const playerPick = ref()
 const computerPick = ref()
 const winner = ref()
 const showResult = ref(false)
-const showBattle = ref(false)
 const showRules = ref(false)
 const showRulesFirstTime = computed(
   () => showRules.value || gameStore.showRulesFirstTime,
@@ -49,11 +39,8 @@ const showRulesFirstTime = computed(
 const startBattle = () => {
   computerPick.value = getComputerPick()
   winner.value = getWinner(playerPick.value, computerPick.value)
-  showBattle.value = true
-}
-const endBattle = () => {
-  showBattle.value = false
   showResult.value = true
+  updateScore()
 }
 const updateScore = () => {
   gameStore.updateScore(winner.value)
