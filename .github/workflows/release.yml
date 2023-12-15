@@ -30,16 +30,13 @@ jobs:
           node-version: '18'
 
       - name: Setup Quasar
-        run: |
-          npm i -g @quasar/cli
+        run: npm i -g @quasar/cli
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
       - name: Setup dependencies
-        run: |
-          npm install
-          npm install --cwd "src-capacitor"
+        run: npm install
 
       - name: Build Android
         run: quasar build -m capacitor -T android -- bundleRelease
