@@ -4,17 +4,17 @@ import { LocalStorage } from 'quasar'
 export const useGameStore = defineStore({
   id: 'game',
   state: () => ({
-    rulesFirstTime: LocalStorage.getItem('show-rules-first-time') || 'show',
-    playerScore: LocalStorage.getItem('player-score') || 0,
-    computerScore: LocalStorage.getItem('computer-score') || 0,
-    playerHistory: LocalStorage.getItem('player-history') || {
+    rulesFirstTime: 'show',
+    playerScore: 0,
+    computerScore: 0,
+    playerHistory: {
       rock: 0,
       paper: 0,
       scissors: 0,
       lizard: 0,
       spock: 0,
     },
-    computerHistory: LocalStorage.getItem('computer-history') || {
+    computerHistory: {
       rock: 0,
       paper: 0,
       scissors: 0,
