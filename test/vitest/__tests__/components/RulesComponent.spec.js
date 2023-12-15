@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import RulesComponent from 'components/RulesComponent.vue'
 
-describe('<rules-component>', () => {
+describe('rules-component', () => {
   installQuasar()
   it('renders default properly', () => {
     const wrapper = mount(RulesComponent)

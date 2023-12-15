@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import TheHeaderComponent from 'components/TheHeaderComponent.vue'
 
-describe('<toolbar-component>', () => {
+describe('toolbar-component', () => {
   installQuasar()
   it('renders default properly', () => {
     const wrapper = mount(TheHeaderComponent)

@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import PlayerComponent from 'components/PlayerComponent.vue'
 
-describe('<player-component>', () => {
+describe('player-component', () => {
   installQuasar()
   it('renders default properly', () => {
     const wrapper = mount(PlayerComponent, {
@@ -31,11 +31,11 @@ describe('<player-component>', () => {
     })
     wrapper.findAll('img').forEach((img) => {
       expect([
-        'rock.png',
-        'paper.png',
-        'scissors.png',
-        'lizard.png',
-        'spock.png',
+        'rock.webp',
+        'paper.webp',
+        'scissors.webp',
+        'lizard.webp',
+        'spock.webp',
       ]).to.contain(img.attributes().src)
     })
   })

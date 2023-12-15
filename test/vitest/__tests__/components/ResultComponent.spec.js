@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import ResultComponent from 'components/ResultComponent.vue'
 
-describe('<result-component>', () => {
+describe('result-component', () => {
   installQuasar()
   it('renders default properly', () => {
     const wrapper = mount(ResultComponent, {

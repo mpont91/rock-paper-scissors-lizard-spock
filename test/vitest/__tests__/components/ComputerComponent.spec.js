@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import ComputerComponent from 'components/ComputerComponent.vue'
 
-describe('<computer-component>', () => {
+describe('computer-component', () => {
   installQuasar()
   it('renders default properly', () => {
     const wrapper = mount(ComputerComponent, {
@@ -36,7 +36,7 @@ describe('<computer-component>', () => {
         },
       })
       expect(wrapper.exists()).to.be.true
-      expect(wrapper.find('img').attributes().src).to.equal(`${pick}.png`)
+      expect(wrapper.find('img').attributes().src).to.equal(`${pick}.webp`)
     })
   })
 })
