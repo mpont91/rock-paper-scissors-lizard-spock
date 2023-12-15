@@ -1,0 +1,10 @@
+{
+  "appId": "org.capacitor.rpsls",
+  "appName": "Rock Paper Scissors Lizard Spock game",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

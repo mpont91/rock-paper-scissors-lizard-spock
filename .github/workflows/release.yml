@@ -1,0 +1,76 @@
+name: Android Builder
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setupjava
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Android
+        uses: android-actions/setup-android@v3
+
+      - name: Setup build tools
+        run: sdkmanager "build-tools;34.0.0"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: yarn
+
+      - name: Setup Quasar
+        run: |
+          yarn global add @quasar/cli
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Setup dependencies
+        run: |
+          yarn install
+          yarn install --cwd "src-capacitor"
+
+      - name: Build Android
+        run: quasar build -m capacitor -T android -- bundleRelease
+
+      - name: Run zipalign
+        run: $ANDROID_SDK_ROOT/build-tools/34.0.0/zipalign -p -f -v 4 dist/capacitor/android/apk/release/app-release-unsigned.apk dist/capacitor/android/apk/release/app-release-aligned.apk
+
+      - name: Run jarsigner
+        run: jarsigner -keystore android.jks -storepass "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" -signedjar dist/capacitor/android/bundle/release/app-release-signed.aab dist/capacitor/android/bundle/release/app-release.aab android
+
+      - name: Run apksigner
+        run: $ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner sign --ks android.jks --ks-key-alias android --ks-pass pass:"${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" --key-pass pass:"${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" dist/capacitor/android/apk/release/app-release-aligned.apk
+
+      - name: Upload artifact (bundle-release-signed)
+        uses: actions/upload-artifact@v3
+        with:
+          name: bundle-release-signed
+          path: dist/capacitor/android/bundle/release/app-release-signed.aab
+          retention-days: 60
+
+      - name: Upload artifact (app-release-signed-aligned)
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-release-signed-aligned
+          path: dist/capacitor/android/apk/release/app-release-aligned.apk
+          retention-days: 60
+
+      - name: Upload Artifact (web-bundle)
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-bundle
+          path: src-capacitor/www/
+          retention-days: 60
