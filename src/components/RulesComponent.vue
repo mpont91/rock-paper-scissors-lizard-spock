@@ -23,7 +23,7 @@
             </p>
           </div>
           <div class="col col-12 col-md-6 text-center">
-            <q-img fit="contain" height="50vh" src="rules.png" />
+            <q-img fit="contain" height="50vh" src="rules.webp" />
           </div>
         </div>
       </q-card-section>

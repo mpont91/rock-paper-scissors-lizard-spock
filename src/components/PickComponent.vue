@@ -8,7 +8,7 @@
     @click="$emit('click')"
   >
     <q-avatar v-if="pick" :size="buttonSizing">
-      <img :alt="pick" :src="`${pick}.png`" />
+      <img :alt="pick" :src="`${pick}.webp`" />
     </q-avatar>
   </q-btn>
 </template>
