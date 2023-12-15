@@ -8,7 +8,11 @@
     @click="$emit('click')"
   >
     <q-avatar v-if="pick" :size="buttonSizing">
-      <img :alt="pick" :src="`${pick}.webp`" />
+      <img
+        v-if="!picked || picked === pick"
+        :alt="pick"
+        :src="`${pick}.webp`"
+      />
     </q-avatar>
   </q-btn>
 </template>
@@ -20,6 +24,11 @@ import { computed } from 'vue'
 
 defineProps({
   pick: {
+    type: String,
+    default: null,
+    validator: (value) => [null, ...options].includes(value),
+  },
+  picked: {
     type: String,
     default: null,
     validator: (value) => [null, ...options].includes(value),

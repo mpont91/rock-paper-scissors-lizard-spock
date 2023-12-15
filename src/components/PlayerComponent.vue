@@ -6,6 +6,7 @@
           v-for="option in options"
           :key="option"
           :pick="option"
+          :picked="modelValue"
           @click="selectHandler(option)"
         />
       </div>
