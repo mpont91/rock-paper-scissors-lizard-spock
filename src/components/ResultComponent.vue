@@ -11,8 +11,8 @@
         winner === 'player'
           ? 'bg-green-3'
           : winner === 'computer'
-          ? 'bg-red-3'
-          : 'bg-orange-3',
+            ? 'bg-red-3'
+            : 'bg-orange-3',
       ]"
     >
       <q-card-section class="text-center">
