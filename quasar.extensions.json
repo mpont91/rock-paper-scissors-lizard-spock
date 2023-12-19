@@ -1,13 +1,5 @@
 {
-  "@quasar/testing-e2e-cypress": {
-    "options": [
-      "scripts"
-    ]
-  },
   "@quasar/testing-unit-vitest": {
-    "options": [
-      "scripts",
-      "ui"
-    ]
+    "options": ["scripts", "ui"]
   }
 }

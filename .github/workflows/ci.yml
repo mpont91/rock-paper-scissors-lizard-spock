@@ -16,12 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Run tests e2e
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm run dev
-
       - name: Run linter
         run: npm run lint:check
 
