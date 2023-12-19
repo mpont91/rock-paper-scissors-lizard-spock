@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest'
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
-import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
+import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import ComputerComponent from 'components/ComputerComponent.vue'
 
 describe('computer-component', () => {
-  installQuasar()
+  installQuasarPlugin()
   it('renders default properly', () => {
     const wrapper = mount(ComputerComponent, {
       global: {

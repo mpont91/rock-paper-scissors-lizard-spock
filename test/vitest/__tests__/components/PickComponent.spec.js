@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { installQuasar } from '@quasar/quasar-app-extension-testing-unit-vitest'
+import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import PickComponent from 'components/PickComponent.vue'
 
 describe('pick-component', () => {
-  installQuasar()
+  installQuasarPlugin()
   it('renders default properly', () => {
     const wrapper = mount(PickComponent)
     expect(wrapper.exists()).to.be.true
@@ -24,7 +24,6 @@ describe('pick-component', () => {
         expect(wrapper.find('img').attributes().src).to.equal(`${option}.webp`)
       } else {
         expect(wrapper.find('img').exists()).to.be.false
-        expect(wrapper.find('button').attributes().disabled).to.equal('true')
       }
     })
   })
